@@ -9,7 +9,7 @@
 <body>
     <h1>Vendas</h1>
     <a target=_blank
-    href="/venda"><button>Criar Estoque</button></a>
+    href="/venda"><button>Criar Venda </button></a>
     @if ($vendas->count()>0)
     <table>
         <thead>

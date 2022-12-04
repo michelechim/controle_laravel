@@ -8,11 +8,11 @@
     <title>Lista de Clientes</title>
 </head>
 <body>
-    @if ($clientes)
-        <h1>{{ $clientes->nome }}</h1>
+    @if ($cliente)
+        <h1>{{ $cliente->nome }}</h1>
         <ul>
-            <li>Endereço: {{ $clientes->endereco }}</li>
-            <li>Telefone: {{ $clientes->telefone }}</li>
+            <li>Endereço: {{ $cliente->endereco }}</li>
+            <li>Telefone: {{ $cliente->telefone }}</li>
         </ul>
     @else
         <p>Clientes não encontrados! </p>

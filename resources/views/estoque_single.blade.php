@@ -8,14 +8,14 @@
     <title>Lista do Estoque</title>
 </head>
 <body>
-    @if ($estoques)
+    @if ($estoque)
 
-        <h1>{{ $estoques->descricao }}</h1>
+        <h1>{{ $estoque->descricao }}</h1>
         <ul>
-            <li>Validade: {{ $estoques->validade}}</li>
-            <li>Quantidade: {{ $estoques->qtd_estoque }}</li>
-            <li>Custo: {{$estoques->custo}}</li>
-            <li>Venda: {{$estoques->venda}}</li>
+            <li>Validade: {{ $estoque->validade}}</li>
+            <li>Quantidade: {{ $estoque->qtd_estoque }}</li>
+            <li>Custo: {{$estoque->custo}}</li>
+            <li>Venda: {{$estoque->venda}}</li>
         </ul>
     @else
         <p>Estoque não encontrado! </p>

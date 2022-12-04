@@ -8,12 +8,13 @@
     <title>Lista de Vendas</title>
 </head>
 <body>
-    @if ($vendas)
+    @if ($venda)
         <ul>
-            <li>Cliente: {{ $vendas->nome }}</li>
-            <li>Descricao: {{ $vendas->descricao }}</li>
-            <li>Valor: {{ $vendas->valor }}</li>
-            <li>Pagamento: {{$vendas->pagamento }}</li>
+            <li>Código: {{ $venda->id }}</li>
+            <li>Cliente: {{ $venda->nome }}</li>
+            <li>Descricao: {{ $venda->descricao }}</li>
+            <li>Valor: {{ $venda->valor }}</li>
+            <li>Pagamento: {{$venda->pagamento }}</li>
         </ul>
     @else
         <p>Venda não encontrado! </p>
