@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    private $message = "Mundo";
+
     public function index(){
-        echo "Bem vindo!";
-        dd($this);
+        echo "Olá $this->message!!";
+        dd($this); //var_dump($this);die;
     }
 }

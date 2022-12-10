@@ -1,63 +1,63 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\EstoqueController;
-use App\Http\Controllers\VendaController;
+use App\Http\Controllers\ProfileController;
+use App\Models\Cliente;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/ola',[HomeController::class,'index']);
+Route::get('/dashboard', function () {
+    return view('dashboard',
+        ['clientes'=>Cliente::all(),
+         'users'=>User::all()
+        ]);
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-/*Routes CLIENTE*/
-Route::get('/clientes',[ClienteController::class,'index']);
-Route::get('/clientes/{id}',[ClienteController::class,'show']);
+Route::get('/dashboard/cliente/{id}', function ($id) {
+    return view('pages.cliente.single-dash',['cliente'=>Cliente::find($id) ]);
+})->middleware(['auth', 'verified'])->name('cliente.single-dash');
 
-Route::get('/cliente',
-    [ClienteController::class,'create']);
-Route::post('/cliente',
-    [ClienteController::class, 'store']);
-Route::get('/cliente/{id}/edit',
-    [ClienteController::class,'edit'])->name('edit');
-Route::post('/cliente/{id}/update',
-    [ClienteController::class,'update'])->name('update');
-Route::get('/cliente/{id}/delete',
-    [ClienteController::class,'delete'])->name('delete');
-Route::post('/cliente/{id}/remove',
-    [ClienteController::class,'remove'])->name('remove');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-/*Routes ESTOQUE*/    
-Route::get('/estoques',[EstoqueController::class,'index']);
-Route::get('/estoques/{id}',[EstoqueController::class,'show']);
+require __DIR__.'/auth.php';
 
-Route::get('/estoque',
-    [EstoqueController::class,'create']);
-Route::post('/estoque',
-    [EstoqueController::class, 'store']);
-Route::get('/estoque/{id}/edit',
-    [EstoqueController::class,'edit'])->name('edit');
-Route::post('/estoque/{id}/update',
-    [EstoqueController::class,'update'])->name('update');
-Route::get('/estoque/{id}/delete',
-    [EstoqueController::class,'delete'])->name('delete');
-Route::post('/estoque/{id}/remove',
-    [EstoqueController::class,'remove'])->name('remove');
+Route::controller(ClienteController::class)
+    ->group(function () {
 
-/*Routes VENDA*/
-Route::get('/vendas',[VendaController::class,'index']);
-Route::get('/vendas/{id}',[VendaController::class,'show']);
+        Route::prefix('/clientes')->group(function () {
+            Route::get('/', 'index')->name('clientes');
+            Route::get('/{id}', 'show');
+        });
 
-Route::get('/venda',
-    [VendaController::class,'create']);
-Route::post('/venda',
-    [VendaController::class, 'store']);
-Route::get('/venda/{id}/edit',
-    [VendaController::class,'edit'])->name('edit');
-Route::post('/venda/{id}/update',
-    [VendaController::class,'update'])->name('update');
-Route::get('/venda/{id}/delete',
-    [VendaController::class,'delete'])->name('delete');
-Route::post('/venda/{id}/remove',
-    [VendaController::class,'remove'])->name('remove');
+        Route::prefix('/cliente')
+            ->middleware('auth')
+            ->group(function () {
+                Route::get('/', 'create');
+                Route::post('/', 'store');
+
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::post('/{id}/update', 'update')->name('update');
+
+                Route::get('/{id}/delete', 'delete')->name('delete');
+                Route::post('/{id}/remove', 'remove')->name('remove');
+            });
+    });
