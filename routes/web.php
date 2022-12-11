@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use APP\Http\Controller\EstoqueController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Cliente;
+use App\Models\Estoque;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -21,16 +23,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*  CLIENTES    */
 Route::get('/dashboard', function () {
     return view('dashboard',
         ['clientes'=>Cliente::all(),
-         'users'=>User::all()
+         'users'=>User::all(),
+         'estoques' =>Estoque::all(),
+         'vendas' =>Vendas::all()
         ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/cliente/{id}', function ($id) {
     return view('pages.cliente.single-dash',['cliente'=>Cliente::find($id) ]);
 })->middleware(['auth', 'verified'])->name('cliente.single-dash');
+
+Route::get('/dashboard/estoque/{id}', function ($id) {
+    return view('pages.estoques.single-dash',['estoque'=>Estoque::find($id) ]);
+})->middleware(['auth', 'verified'])->name('estoque.single-dash');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,7 +52,6 @@ require __DIR__.'/auth.php';
 
 Route::controller(ClienteController::class)
     ->group(function () {
-
         Route::prefix('/clientes')->group(function () {
             Route::get('/', 'index')->name('clientes');
             Route::get('/{id}', 'show');
@@ -61,3 +70,24 @@ Route::controller(ClienteController::class)
                 Route::post('/{id}/remove', 'remove')->name('remove');
             });
     });
+
+Route::controller(EstoqueController::class)
+    ->group(function () {
+        Route::prefix('/estoques')->group(function () {
+            Route::get('/', 'index')->name('estoques');
+            Route::get('/{id}', 'show');
+        });
+
+        Route::prefix('/estoque')
+            ->middleware('auth')
+            ->group(function () {
+                Route::get('/', 'create');
+                Route::post('/', 'store');
+
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::post('/{id}/update', 'update')->name('update');
+
+                Route::get('/{id}/delete', 'delete')->name('delete');
+                Route::post('/{id}/remove', 'remove')->name('remove');
+            });
+});
