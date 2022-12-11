@@ -24,6 +24,7 @@
             </div>
         </div>
     </div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -38,6 +39,26 @@
                         @endauth
                     @else
                         <p>Estoques não encontrados! </p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <h2 class='text-4xl'>Vendas</h2>
+                    @if (isset($vendas) && $vendas->count() > 0)
+                        <x-tables.vendas :vendas="$vendas" class='table-odd' type='hover' />
+                        @auth
+                            <div style="display:flex; flex-direction: row; justify-content:flex-end">
+                                <a href="/venda"><button>Criar Nova Venda</button></a>
+                            </div>
+                        @endauth
+                    @else
+                        <p>Vendas não encontrados! </p>
                     @endif
                 </div>
             </div>
