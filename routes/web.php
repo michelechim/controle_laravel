@@ -1,25 +1,14 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
-use App\Http\Controller\EstoqueController;
-use App\Http\Controller\VendaController;
+use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\VendaController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Cliente;
 use App\Models\Estoque;
 use App\Models\Venda;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -68,11 +57,11 @@ Route::controller(ClienteController::class)
                 Route::get('/', 'create');
                 Route::post('/', 'store');
 
-                Route::get('/{id}/edit', 'edit')->name('edit');
-                Route::post('/{id}/update', 'update')->name('update');
+                Route::get('/{id}/edit', 'edit')->name('cliente_edit');
+                Route::post('/{id}/update', 'update')->name('cliente_update');
 
-                Route::get('/{id}/delete', 'delete')->name('delete');
-                Route::post('/{id}/remove', 'remove')->name('remove');
+                Route::get('/{id}/delete', 'delete')->name('cliente_delete');
+                Route::post('/{id}/remove', 'remove')->name('cliente_remove');
             });
     });
 
@@ -89,11 +78,11 @@ Route::controller(EstoqueController::class)
                 Route::get('/', 'create');
                 Route::post('/', 'store');
 
-                Route::get('/{id}/edit', 'edit')->name('edit');
-                Route::post('/{id}/update', 'update')->name('update');
+                Route::get('/{id}/edit', 'edit')->name('estoque_edit');
+                Route::post('/{id}/update', 'update')->name('estoque_update');
 
-                Route::get('/{id}/delete', 'delete')->name('delete');
-                Route::post('/{id}/remove', 'remove')->name('remove');
+                Route::get('/{id}/delete', 'delete')->name('estoque_delete');
+                Route::post('/{id}/remove', 'remove')->name('estoque_remove');
             });
 });
 
@@ -110,10 +99,10 @@ Route::controller(VendaController::class)
                 Route::get('/', 'create');
                 Route::post('/', 'store');
 
-                Route::get('/{id}/edit', 'edit')->name('edit');
-                Route::post('/{id}/update', 'update')->name('update');
+                Route::get('/{id}/edit', 'edit')->name('venda_edit');
+                Route::post('/{id}/update', 'update')->name('venda_update');
 
-                Route::get('/{id}/delete', 'delete')->name('delete');
-                Route::post('/{id}/remove', 'remove')->name('remove');
+                Route::get('/{id}/delete', 'delete')->name('venda_delete');
+                Route::post('/{id}/remove', 'remove')->name('venda_remove');
             });
 });

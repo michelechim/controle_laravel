@@ -1,6 +1,6 @@
 <x-dash-layout>
     <h1>Inserir nova venda</h1>
-    <form id=edit action="{{route('update',$venda->id)}}" method="POST">
+    <form id=edit action="{{route('venda_update',$venda->id)}}" method="POST">
         @csrf
         <table>
             <tr>

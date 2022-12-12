@@ -1,6 +1,6 @@
 <x-dash-layout>
     <h1>Inserir novo cliente</h1>
-    <form id=edit action="{{route('update',$cliente->id)}}" method="POST">
+    <form id=edit action="{{route('cliente_update',$cliente->id)}}" method="POST">
         @csrf
         <table>
             <tr>
@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <td>Telefone:</td>
-                <td><input type="number" name="telefone" value="{{$cliente->telefone}}"/></td>
+                <td><input type="text" name="telefone" value="{{$cliente->telefone}}"/></td>
             </tr>
         </table>
     </form>

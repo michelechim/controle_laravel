@@ -24,8 +24,8 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="{{ route('edit', $estoque->id) }}"><button>editar</button></a>
-            <a href="{{ route('delete', $estoque->id) }}"><button>deletar</button></a>
+            <a href="{{ route('estoque_edit', $estoque->id) }}"><button>editar</button></a>
+            <a href="{{ route('estoque_delete', $estoque->id) }}"><button>deletar</button></a>
         @else
             <p>Estoque não encontrados! </p>
         @endif

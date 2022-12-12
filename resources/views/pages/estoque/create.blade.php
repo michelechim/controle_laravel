@@ -25,6 +25,6 @@
             </tr>
         </table>
     </form>
-    <input type="submit" value="Criar" form=create/>
+    <input type="submit" value="Criar" form='create'/>
     <a href="/estoques"><button>Cancelar</button></a>
 </x-main-layout>

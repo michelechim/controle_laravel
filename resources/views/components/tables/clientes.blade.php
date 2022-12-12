@@ -26,8 +26,8 @@
                 <td>{{ $cliente->telefone }}</td>
 
                 @if(Auth::user() && Route::is('dashboard'))
-                    <td><a href="{{ route('edit', $cliente->id) }}">editar</a> |
-                        <a href="{{ route('delete', $cliente->id) }}">deletar</a>
+                    <td><a href="{{ route('cliente_edit', $cliente->id) }}">editar</a> |
+                        <a href="{{ route('cliente_delete', $cliente->id) }}">deletar</a>
                     </td>
                 @endif
             </tr>

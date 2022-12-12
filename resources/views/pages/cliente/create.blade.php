@@ -1,5 +1,5 @@
 <x-main-layout>
-    <h1>Insert new Cliente</h1>
+    <h1>Inserir novo Cliente</h1>
     <form id=create action="/cliente" method="POST">
         @csrf
         {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"/> --}}
@@ -18,6 +18,6 @@
             </tr>
         </table>
     </form>
-    <input type="submit" value="Criar" form=create/>
+    <input type="submit" value="Criar-Enter" form='create'/>
     <a href="/clientes"><button>Cancelar</button></a>
 </x-main-layout>

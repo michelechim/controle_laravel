@@ -30,8 +30,8 @@
                 <td>{{ $estoque->venda }}</td>
 
                 @if(Auth::user() && Route::is('dashboard'))
-                    <td><a href="{{ route('edit', $estoque->id) }}">editar</a> |
-                        <a href="{{ route('delete', $estoque->id) }}">deletar</a>
+                    <td><a href="{{ route('estoque_edit', $estoque->id) }}">editar</a> |
+                        <a href="{{ route('estoque_delete', $estoque->id) }}">deletar</a>
                     </td>
                 @endif
             </tr>

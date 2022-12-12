@@ -6,7 +6,7 @@
             <li>Valor: {{ $venda->telefone }}</li>
             <li>Pagamento: {{ $venda->pagamento }}</li>
         </ul>
-        <form action="{{ route('remove', $venda->id) }}" method="post">
+        <form action="{{ route('venda_remove', $venda->id) }}" method="post">
             @csrf
             <h4 style="color:red;font-weight:bold">Confirmar a exclusão deste item?</h4>
             <input type="submit" name='confirmar' value="Deletar" />

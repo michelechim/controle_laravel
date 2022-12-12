@@ -16,8 +16,8 @@
                 </tr>
             </tbody>
         </table>
-        <a href="{{ route('edit', $cliente->id) }}"><button>editar</button></a>
-        <a href="{{ route('delete', $cliente->id) }}"><button>deletar</button></a>
+        <a href="{{ route('cliente_edit', $cliente->id) }}"><button>editar</button></a>
+        <a href="{{ route('cliente_delete', $cliente->id) }}"><button>deletar</button></a>
     @else
         <p>Clientes não encontrados! </p>
     @endif
