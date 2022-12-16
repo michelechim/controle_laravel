@@ -34,7 +34,7 @@ class EstoqueController extends Controller
     {
         $newEstoque = $request->all();
         if (Estoque::create($newEstoque))
-            return redirect('/estoques');
+            return redirect('/dashboard');
         else dd("Error ao criar estoque!!");
     }
 
@@ -46,7 +46,6 @@ class EstoqueController extends Controller
     public function update(Request $request, $id)
     {
         $updatedEstoque = $request->all();
-        // dd($updatedEstoque);
         if (!Estoque::find($id)->update($updatedEstoque))
             dd("Erro ao atualizar estoque $id!");
         return redirect('/dashboard');
@@ -62,7 +61,6 @@ class EstoqueController extends Controller
 
     public function remove(Request $request, $id)
     {
-        //if(!Estoque::find($id)->delete())
         if ($request->confirmar == 'Deletar')
             if (!Estoque::destroy($id))
                 dd("Error ao deletar estoque $id.");

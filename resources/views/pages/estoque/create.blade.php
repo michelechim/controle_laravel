@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-dash-layout>
     <h1>Inserir novo estoque</h1>
     <form id=create action="/estoque" method="POST">
         @csrf
@@ -26,5 +26,5 @@
         </table>
     </form>
     <input type="submit" value="Criar" form='create'/>
-    <a href="/estoques"><button>Cancelar</button></a>
-</x-main-layout>
+    <a href="/dashboard"><button>Cancelar</button></a>
+</x-dash-layout>
