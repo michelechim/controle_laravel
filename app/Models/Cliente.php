@@ -14,6 +14,4 @@ class Cliente extends Model
         "endereco",
         "telefone"
     ];
-
-
 }

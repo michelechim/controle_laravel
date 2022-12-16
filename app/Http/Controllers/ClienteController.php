@@ -34,7 +34,7 @@ class ClienteController extends Controller
     {
         $newCliente = $request->all();
         if (Cliente::create($newCliente))
-            return redirect('/clientes');
+            return redirect('/dashboard');
         else dd("Error ao criar cliente!!");
     }
 

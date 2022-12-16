@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-dash-layout>
     <h1>Inserir novo Cliente</h1>
     <form id=create action="/cliente" method="POST">
         @csrf
@@ -18,6 +18,6 @@
             </tr>
         </table>
     </form>
-    <input type="submit" value="Criar-Enter" form='create'/>
-    <a href="/clientes"><button>Cancelar</button></a>
-</x-main-layout>
+    <input type="submit" value="Criar" form='create'/>
+    <a href="/dashboard"><button>Cancelar</button></a>
+</x-dash-layout>

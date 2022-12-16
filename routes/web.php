@@ -11,8 +11,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('landing',['clientes' => Cliente::all()]);
+})->name('landing');
 
 Route::get('/dashboard', function () {
     return view('dashboard',
@@ -47,8 +47,8 @@ require __DIR__.'/auth.php';
 Route::controller(ClienteController::class)
     ->group(function () {
         Route::prefix('/clientes')->group(function () {
-            Route::get('/', 'index')->name('clientes');
-            Route::get('/{id}', 'show');
+            Route::get('/', 'index')->name('clientes')->middleware('auth');
+            Route::get('/{id}', 'show')->name('single');
         });
 
         Route::prefix('/cliente')
