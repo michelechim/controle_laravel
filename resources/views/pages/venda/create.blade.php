@@ -1,4 +1,4 @@
-<x-main-layout>
+<x-dash-layout>
     <h1>Inserir nova venda</h1>
     <form id=create action="/venda" method="POST">
         @csrf
@@ -9,18 +9,18 @@
             </tr>
             <tr>
                 <td>Descricao:</td>
-                <td><input type="text" name="descricao" /></td>
+                <td><input type="text" name="descricao"/></td>
             </tr>
             <tr>
                 <td>Valor:</td>
                 <td><input type="text" name="valor" /></td>
             </tr>
             <tr>
-                <td>Pagamento:</td>
-                <td><input type="text" name="pagamento"/></td>
+                <td>Pagamento</td>
+                <td><input type="text" name="pagamento" /></td>
             </tr>
         </table>
     </form>
     <input type="submit" value="Criar" form='create'/>
-    <a href="/vendas"><button>Cancelar</button></a>
-</x-main-layout>
+    <a href="/dashboard"><button>Cancelar</button></a>
+</x-dash-layout>
