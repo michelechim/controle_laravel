@@ -8,7 +8,7 @@
                 <td><input type="text" name="nome" value="{{$venda->nome}}"/></td>
             </tr>
             <tr>
-                <td>Descricao:</td>
+                <td>Descrição:</td>
                 <td><input type="text" name="descricao" value="{{$venda->descricao}}"/></td>
             </tr>
             <tr>

@@ -2,7 +2,7 @@
     @if ($venda)
         <h1>{{ $venda->nome }}</h1>
         <ul>
-            <li>Descricao: {{ $venda->endereco }}</li>
+            <li>Descrição: {{ $venda->endereco }}</li>
             <li>Valor: {{ $venda->telefone }}</li>
             <li>Pagamento: {{ $venda->pagamento }}</li>
         </ul>

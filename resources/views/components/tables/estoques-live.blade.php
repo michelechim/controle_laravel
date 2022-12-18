@@ -6,13 +6,13 @@
     <thead>
         <tr>
             <th><a href="#" wire:click='orderBy'>Id</a></th>
-            <th><a href="#" wire:click='orderByName'>Descricao</a></th>
+            <th><a href="#" wire:click='orderByName'>Descrição</a></th>
             <th>Validade</th>
             <th>Quantidade</th>
             <th>Custo</th>
             <th>Venda</th>
             @if (Auth::user())
-                <th colspan="2">Acoes</th>
+                <th colspan="2">Ações</th>
             @endif
         </tr>
     </thead>

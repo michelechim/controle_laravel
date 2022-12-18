@@ -7,7 +7,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Descricao</th>
+                        <th>Descrição</th>
                         <td>{{ $venda->descricao }}</td>
                     </tr>
                     <tr>

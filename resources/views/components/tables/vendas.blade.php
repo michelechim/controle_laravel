@@ -4,11 +4,11 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Descricao</th>
+            <th>Descrição</th>
             <th>Valor</th>
             <th>Pagamento</th>
             @if(Auth::user() && Route::is('dashboard'))
-                <th>Acoes</th>
+                <th>Ações</th>
             @endif
         </tr>
     </thead>

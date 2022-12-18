@@ -9,7 +9,7 @@
                 <td><input type="text" name="nome" /></td>
             </tr>
             <tr>
-                <td>Endereco:</td>
+                <td>Endereço:</td>
                 <td><input type="text" name="endereco"/></td>
             </tr>
             <tr>

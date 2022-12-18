@@ -4,10 +4,10 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Endereco</th>
+            <th>Endereço</th>
             <th>Telefone</th>
             @if(Auth::user() && Route::is('dashboard'))
-                <th>Acoes</th>
+                <th>Ações</th>
             @endif
         </tr>
     </thead>

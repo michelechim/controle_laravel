@@ -7,10 +7,10 @@
         <tr>
             <th><a href="#" wire:click='orderBy'>Id</a></th>
             <th><a href="#" wire:click='orderByName'>Nome</a></th>
-            <th>telefone</th>
-            <th>endereco</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
             @if (Auth::user())
-                <th colspan="2">Acoes</th>
+                <th colspan="2">Ações</th>
             @endif
         </tr>
     </thead>

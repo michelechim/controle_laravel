@@ -4,7 +4,7 @@
         @csrf
         <table>
             <tr>
-                <td>Descricao:</td>
+                <td>Descrição:</td>
                 <td><input type="text" name="descricao" /></td>
             </tr>
             <tr>

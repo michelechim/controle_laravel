@@ -8,7 +8,7 @@
                 <td><input type="text" name="nome" value="{{$cliente->nome}}"/></td>
             </tr>
             <tr>
-                <td>Endereco:</td>
+                <td>Endereço:</td>
                 <td><input type="text" name="endereco" value="{{$cliente->endereco}}"/></td>
             </tr>
             <tr>

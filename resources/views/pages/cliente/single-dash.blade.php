@@ -7,7 +7,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Endereco</th>
+                        <th>Endereço</th>
                         <td>{{ $cliente->endereco }}</td>
                     </tr>
                     <tr>

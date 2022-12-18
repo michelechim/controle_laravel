@@ -4,7 +4,7 @@
         @csrf
         <table>
             <tr>
-                <td>Descricao:</td>
+                <td>Descriçao:</td>
                 <td><input type="text" name="descricao" value="{{$estoque->descricao}}"/></td>
             </tr>
             <tr>

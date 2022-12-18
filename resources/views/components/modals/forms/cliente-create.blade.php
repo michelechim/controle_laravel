@@ -7,19 +7,18 @@
             <h1 class='text-center text-2xl font-bold pb-4 mb-4 border-b-2 border-gray-300'>Novo Cliente</h1>
             <form id=create @submit.prevent="$wire.save()" method="POST">
                 @csrf
-                {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"/> --}}
                 <table>
                     <tr>
                         <td>Nome:</td>
                         <td><input wire:model='nome' type="text" name="nome" /></td>
                     </tr>
                     <tr>
-                        <td>Telefone:</td>
-                        <td><input wire:model='telefone' type="text" name="telefone" /></td>
+                        <td>Endereco:</td>
+                        <td><input wire:model='endereco' type="text"  name="endereco" /></td>
                     </tr>
                     <tr>
-                        <td>Edereco:</td>
-                        <td><input wire:model='endereco' type="text"  name="endereco" /></td>
+                        <td>Telefone:</td>
+                        <td><input wire:model='telefone' type="text" name="telefone" /></td>
                     </tr>
                 </table>
             </form>

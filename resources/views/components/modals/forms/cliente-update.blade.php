@@ -23,12 +23,12 @@
                     <td><input x-model="cliente.nome" type="text" name="nome" /></td>
                 </tr>
                 <tr>
-                    <td>Telefone:</td>
-                    <td><input x-model="cliente.telefone" type="text" name="telefone"/></td>
-                </tr>
-                <tr>
                     <td>Endereco:</td>
                     <td><input x-model="cliente.endereco" type="text" name="endereco" /></td>
+                </tr>
+                <tr>
+                    <td>Telefone:</td>
+                    <td><input x-model="cliente.telefone" type="text" name="telefone"/></td>
                 </tr>
             </table>
         </form>

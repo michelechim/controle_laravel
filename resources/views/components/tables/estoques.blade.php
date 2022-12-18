@@ -3,13 +3,13 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Descrica</th>
+            <th>Descrição</th>
             <th>Validade</th>
             <th>Quantidade</th>
             <th>Custo</th>
             <th>Venda</th>
             @if(Auth::user() && Route::is('dashboard'))
-                <th>Acoes</th>
+                <th>Ações</th>
             @endif
         </tr>
     </thead>

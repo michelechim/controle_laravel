@@ -7,11 +7,11 @@
         <tr>
             <th><a href="#" wire:click='orderBy'>Id</a></th>
             <th><a href="#" wire:click='orderByName'>Nome</a></th>
-            <th>Descricao</th>
+            <th>Descrição</th>
             <th>Valor</th>
             <th>Pagamento</th>
             @if (Auth::user())
-                <th colspan="2">Acoes</th>
+                <th colspan="2">Ações</th>
             @endif
         </tr>
     </thead>
