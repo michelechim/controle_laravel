@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Tempo de geração: 14/12/2022 às 12:35
--- Versão do servidor: 10.4.25-MariaDB
--- Versão do PHP: 8.1.10
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -41,10 +32,15 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `endereco`, `telefone`, `created_at`, `updated_at`) VALUES
-(1, 'Marlene Pinto Chim', 'Br 392 km 41, 372', '53991095697', NULL, '2022-12-12 17:03:18'),
+(1, 'Marlene Pinto Chim', 'Br 392 km 41,  casa 372', '53 991095697', NULL, '2022-12-16 21:27:05'),
 (2, 'João Silva', 'Av da paz, 57\r\nPovo Novo', '53998456283', NULL, '2022-11-27 19:55:54'),
 (4, 'Noeli Barros', 'av rio grande, 457', '123456789', '2022-11-27 19:44:17', '2022-11-27 19:44:17'),
-(5, 'Michele', 'br 392 km 41, 200', '53987654321', '2022-11-27 19:53:15', '2022-11-27 19:53:15');
+(5, 'Michele Pinto', 'br 392 km 41, 200', '53987654321', '2022-11-27 19:53:15', '2022-12-16 21:06:51'),
+(7, 'Selma Pollnow', 'Colonia Santa bernardina, Pelotas', '32775989', '2022-12-14 16:29:41', '2022-12-16 21:40:23'),
+(8, 'Osmar Avila', 'Corredor do mendonça', '32376565', '2022-12-14 16:30:37', '2022-12-14 16:30:37'),
+(9, 'Jose Antonio', 'av teste 16, 2022', '53 93456789', '2022-12-16 21:03:15', '2022-12-16 21:04:04'),
+(10, 'Cibele Senna', 'Rua verde 115', '53123456789', '2022-12-16 21:18:38', '2022-12-16 21:18:38'),
+(12, 'Nerody Silva', 'Corredor servical, 1254', '53123456789', '2022-12-16 21:42:04', '2022-12-16 21:42:04');
 
 -- --------------------------------------------------------
 
@@ -68,11 +64,12 @@ CREATE TABLE `estoques` (
 --
 
 INSERT INTO `estoques` (`id`, `descricao`, `validade`, `qtd_estoque`, `custo`, `venda`, `created_at`, `updated_at`) VALUES
-(100, 'Sabonete tododia amora vermelha e jabuticaba', '01/06/2026', '12', 12.10, 18.00, NULL, '2022-12-12 17:10:00'),
+(100, 'Sabonete tododia amora vermelha e jabuticaba', '01/06/2026', '10', 12.10, 18.00, NULL, '2022-12-16 23:33:43'),
 (101, 'Deo corporal kaiak masculino', '01/08/2026', '5', 11.14, 30.00, NULL, NULL),
 (102, 'Desodorante aerossol lily', '01/04/2025', '2', 20.75, 25.00, NULL, NULL),
 (103, 'Colonia luna', '01/05/2026', '2', 53.58, 100.00, '2022-11-27 20:43:52', '2022-11-27 20:43:52'),
-(105, 'Colonia kaiak', '01/07/2023', '1', 53.58, 95.00, '2022-12-12 17:11:39', '2022-12-12 17:11:39');
+(105, 'Colonia kaiak', '01/07/2023', '1', 53.58, 95.00, '2022-12-12 17:11:39', '2022-12-12 17:11:39'),
+(106, 'Creme para mãos flor de lis', '01/09/2023', '2', 11.35, 22.00, '2022-12-16 23:39:43', '2022-12-16 23:39:43');
 
 -- --------------------------------------------------------
 
@@ -175,7 +172,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'Test', 'teste@example.com', '2022-12-07 14:31:19', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '7ArF2LTChuVIFj26xJV5RzDFlnWdAOUia9ETTcGXUSRMKIilwkcKlS1szLey', '2022-12-07 14:31:19', '2022-12-07 14:31:19'),
+(4, 'Test', 'teste@example.com', '2022-12-07 14:31:19', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'cyzfp1Q9VydwoezWnmCjtcplKmLlHMjbM6Z8ML2QpbuO1DmMAgD1r0P9P6Fz', '2022-12-07 14:31:19', '2022-12-07 14:31:19'),
 (5, 'Test User', 'test@example.com', '2022-12-11 01:44:42', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'gHV6opLZyc', '2022-12-11 01:44:42', '2022-12-11 01:44:42');
 
 -- --------------------------------------------------------
@@ -203,7 +200,7 @@ INSERT INTO `vendas` (`id`, `nome`, `descricao`, `valor`, `pagamento`, `created_
 (11, 'Maria', '2 sabonete cod: 100', 36.00, 'cartão', NULL, NULL),
 (12, 'Noeli', '1 desodorante cod: 102', 25.00, 'dinheiro', NULL, NULL),
 (13, 'Michele', '2 cx de sabonete e 1 hidratante', 76.50, 'Cartão', '2022-11-27 21:05:50', '2022-11-27 21:05:50'),
-(14, 'Celia', 'promoção black friday - 10 produtos', 97.00, 'Dinheiro', '2022-12-12 17:12:42', '2022-12-12 17:12:42');
+(15, 'Michele', '3 caixas de sabonete', 54.00, 'Cartão - crédito', '2022-12-17 03:44:23', '2022-12-17 03:48:42');
 
 --
 -- Índices para tabelas despejadas
@@ -269,13 +266,13 @@ ALTER TABLE `vendas`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `estoques`
 --
 ALTER TABLE `estoques`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
@@ -305,7 +302,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `vendas`
 --
 ALTER TABLE `vendas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
