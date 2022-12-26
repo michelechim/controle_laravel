@@ -20,5 +20,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $seedRegiao = new RegiaoSeeder();
+        $seedRegiao->run();
+
+        (new EstadoSeeder)->run();
+
+        \App\Models\Fornecedor::factory(fake()->randomNumber(2))
+                ->hasEstoques(fake()->randomNumber(1))
+                ->create();
+
+
     }
 }

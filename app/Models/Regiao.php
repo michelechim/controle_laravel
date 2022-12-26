@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Regiao extends Model
+{
+    use HasFactory, \Staudenmeir\EloquentHasManyDeep\HasRelationships;
+
+    protected $table = 'regioes';
+    protected $fillable = ['nome'];
+
+    public function estados(){
+        return $this->hasMany(Estado::class);
+    }
+
+    public function fornecedores(){
+        return $this->hasManyThrough(
+            Fornecedor::class, Estado::class);
+    }
+
+    public function estoques()
+    {
+        return $this->hasManyDeep(
+            estoques::class,
+            [Estado::class,Fornecedor::class]
+        );
+    }
+}
