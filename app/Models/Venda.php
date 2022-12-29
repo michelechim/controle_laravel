@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venda extends Model
 {
-    use HasFactory;
+    use HasFactory, \Znck\Eloquent\Traits\BelongsToThrough;
 
     protected $fillable = [
         "nome",
@@ -16,5 +16,8 @@ class Venda extends Model
         "pagamento"
     ];
 
+    public function venda(){
+        return $this->belongsTo(Venda::class);
+    }
 
 }

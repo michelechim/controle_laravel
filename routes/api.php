@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\EstoqueController;
+use App\Http\Controllers\Api\VendaController;
 use App\Http\Controllers\Api\FornecedorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,11 @@ Route::get('fornecedor/{fornecedor}/estoques',
         [FornecedorController::class,
         'estoques'
     ]);
+
+Route::get('venda',[VendaController::class,'index']);
+Route::get('venda/{id}',[VendaController::class,'show']);
+Route::post('venda',[VendaController::class,'store']);
+Route::put('venda/{id}',[VendaController::class,'update']);
+Route::delete('venda/{id}',[VendaController::class,'remove']);
+
+Route::apiResource('venda',VendaController::class);
