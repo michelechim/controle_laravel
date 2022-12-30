@@ -36,7 +36,12 @@ class VendaController extends Controller
 
     public function store(VendaRequest $request)
     {
+        $statusHttp = 500;
         try{
+            if(!$request->user()->tokenCan('is_admin')){
+                $statusHttp = 403;
+                throw new \Exception("Não possui permissão!!!");
+            }
             $newVenda = $request->all();
             $storedVenda = Venda::create($newVenda);
             return response()->json([

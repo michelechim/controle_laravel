@@ -14,20 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(3)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-        $seedRegiao = new RegiaoSeeder();
-        $seedRegiao->run();
+        // $seedRegiao = new RegiaoSeeder();
+        // $seedRegiao->run();
 
-        (new EstadoSeeder)->run();
+        // (new EstadoSeeder)->run();
 
-        \App\Models\Fornecedor::factory(fake()->randomNumber(2))
-                ->hasEstoques(fake()->randomNumber(1))
+        \App\Models\Fornecedor::factory(5)
+                ->hasEstoques(3)
                 ->create();
 
 
