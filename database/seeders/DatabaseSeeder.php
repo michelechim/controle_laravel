@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
          \App\Models\User::factory(3)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         \App\Models\User::factory()->create([
+             'name' => 'Test User',
+             'email' => 'test@example.com',
+        ]);
 
         // $seedRegiao = new RegiaoSeeder();
         // $seedRegiao->run();
@@ -27,9 +27,7 @@ class DatabaseSeeder extends Seeder
         // (new EstadoSeeder)->run();
 
         \App\Models\Fornecedor::factory(5)
-                ->hasEstoques(3)
-                ->create();
-
-
+             ->hasEstoques(3)
+             ->create();
     }
 }
