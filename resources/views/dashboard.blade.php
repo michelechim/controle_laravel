@@ -5,8 +5,27 @@
         </h2>
     </x-slot>
 
-    {{-- CLIENTES --}}
     <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
+                    <h2 class='text-4xl'>Fornecedores</h2>
+                    @if (isset($fornecedores) && $fornecedores->count() > 0)
+
+                        <div style="display:flex; flex-direction: row; justify-content:flex-end">
+                            <a href="/fornecedor"><button>Criar Novo Fornecedor</button></a>
+                        </div>
+                        <x-tables.fornecedores :fornecedores="$fornecedores" class='table-odd' type='hover' />
+                    @else
+                        <p>Fornecedores não encontrados! </p>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- CLIENTES --}}
+    {{-- <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -23,10 +42,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- ESTOQUES --}}
-    <div class="py-12">
+    {{-- <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -43,10 +62,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- VENDAS --}}
-    <div class="py-12">
+    {{-- <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
@@ -63,6 +82,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </x-app-layout>
