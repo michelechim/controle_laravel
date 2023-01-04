@@ -4,10 +4,12 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\VendaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FornecedorController;
 use App\Models\Cliente;
 use App\Models\Estoque;
 use App\Models\Venda;
 use App\Models\User;
+use App\Models\Fornecedor;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,6 +22,7 @@ Route::get('/dashboard', function () {
          'users'=>User::all(),
          'estoques' =>Estoque::all(),
          'vendas' =>Venda::all(),
+         'fornecedores'=>fornecedor::all(),
         ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -34,6 +37,10 @@ Route::get('/dashboard/estoque/{id}', function ($id) {
 Route::get('/dashboard/venda/{id}', function ($id) {
     return view('pages.venda.single-dash',['venda'=>Venda::find($id) ]);
 })->middleware(['auth','verified'])->name('venda.single-dash');
+
+Route::get('/dashboard/fornecedor/{id}', function ($id) {
+    return view('pages.fornecedor.single-dash',['fornecedor'=>Fornecedor::find($id) ]);
+})->middleware(['auth','verified'])->name('fornecedor.single-dash');
 
 
 Route::middleware('auth')->group(function () {
@@ -104,5 +111,26 @@ Route::controller(VendaController::class)
 
                 Route::get('/{id}/delete', 'delete')->name('venda_delete');
                 Route::post('/{id}/remove', 'remove')->name('venda_remove');
+            });
+});
+
+Route::controller(FornecedorController::class)
+    ->group(function () {
+        Route::prefix('/fornecedores')->group(function () {
+            Route::get('/', 'index')->name('fornecedores');
+            Route::get('/{id}', 'show');
+        });
+
+        Route::prefix('/fornecedor')
+            ->middleware('auth')
+            ->group(function () {
+                Route::get('/', 'create');
+                Route::post('/', 'store');
+
+                Route::get('/{id}/edit', 'edit')->name('fornecedor_edit');
+                Route::post('/{id}/update', 'update')->name('fornecedor_update');
+
+                Route::get('/{id}/delete', 'delete')->name('fornecedor_delete');
+                Route::post('/{id}/remove', 'remove')->name('fornecedor_remove');
             });
 });
