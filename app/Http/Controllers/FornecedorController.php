@@ -60,7 +60,7 @@ class FornecedorController extends Controller
     public function remove(Request $request, $id)
     {
         if ($request->confirmar == 'Deletar')
-            if (!Cliente::destroy($id))
+            if (!Fornecedor::destroy($id))
                 dd("Error ao deletar fornecedor $id.");
         return redirect('/dashboard');
     }
