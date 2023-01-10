@@ -8,6 +8,7 @@
             <th>Quantidade</th>
             <th>Custo</th>
             <th>Venda</th>
+            <th>Fornecedor</th>
             @if(Auth::user() && Route::is('dashboard'))
                 <th>Ações</th>
             @endif
@@ -28,6 +29,7 @@
                 <td>{{ $estoque->qtd_estoque }}</td>
                 <td>{{ $estoque->custo }}</td>
                 <td>{{ $estoque->venda }}</td>
+                <td>{{ $estoque->fornecedor->nome }} </td>
 
                 @if(Auth::user() && Route::is('dashboard'))
                     <td><a href="{{ route('estoque_edit', $estoque->id) }}">editar</a> |

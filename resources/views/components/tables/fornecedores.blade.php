@@ -8,7 +8,7 @@
             <th>CNPJ</th>
             <th>Telefone</th>
             <th>Email</th>
-            <th>Id - estado</th>
+            <th>Estado</th>
             @if(Auth::user() && Route::is('dashboard'))
                 <th>Ações</th>
             @endif
@@ -29,7 +29,7 @@
                 <td>{{ $fornecedor->cnpj }}</td>
                 <td>{{ $fornecedor->telefone }}</td>
                 <td>{{ $fornecedor->email }}</td>
-                <td>{{ $fornecedor->estado_id }}</td>
+                <td>{{ $fornecedor->estado->uf }}</td>
 
                 @if(Auth::user() && Route::is('dashboard'))
                     <td><a href="{{ route('fornecedor_edit', $fornecedor->id) }}">editar</a> |

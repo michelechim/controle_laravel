@@ -11,19 +11,35 @@
 				{
 					"name": "estoque",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|UICp9jUdPjAC0JfTSANGYPDC5pm8JBSG6fLqE5js",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
 									"key": "fornecedor_id",
-									"value": "20",
+									"value": "200",
 									"type": "default"
 								},
 								{
 									"key": "descricao",
-									"value": "Shampoo cachos",
+									"value": "testando 10/01/23 - exists",
 									"type": "default"
 								},
 								{
@@ -33,17 +49,17 @@
 								},
 								{
 									"key": "validade",
-									"value": "01/08/2023",
+									"value": "31/01/2023",
 									"type": "default"
 								},
 								{
 									"key": "custo",
-									"value": "0.00",
+									"value": "10.01",
 									"type": "default"
 								},
 								{
 									"key": "venda",
-									"value": "20.00",
+									"value": "20.02",
 									"type": "default"
 								}
 							]
@@ -646,6 +662,49 @@
 								"api",
 								"venda",
 								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fornecedores",
+			"item": [
+				{
+					"name": "fornecedores/id_fornecedor/estoques",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|UICp9jUdPjAC0JfTSANGYPDC5pm8JBSG6fLqE5js",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/fornecedores/201/estoques",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fornecedores",
+								"201",
+								"estoques"
 							]
 						}
 					},

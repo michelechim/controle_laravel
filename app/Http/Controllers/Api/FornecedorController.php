@@ -17,8 +17,10 @@ class FornecedorController extends Controller
     {
         $perPage = $request->query('per_page');
         $paginateFornecedor = Fornecedor::paginate($perPage);
-        $paginateFornecedor->appends(['per_page'=>$perPage]);
-        return response()->json(paginateFornecedor);
+        $paginateFornecedor->appends([
+            'per_page'=>$perPage
+        ]);
+        return response()->json($paginateFornecedor);
     }
 
     /**
@@ -71,7 +73,7 @@ class FornecedorController extends Controller
             $fornecedor->update($data);
             return response()->json([
                 'message' => 'Fornecedor atualizado com sucesso!',
-                'fornecedor' => $fornecedor
+                'Fornecedor' => $fornecedor
             ]);
         } catch (\Exception $error) {
             $message = [
@@ -109,10 +111,7 @@ class FornecedorController extends Controller
         }
     }
 
-    public function Fornecedores (Fornecedor $fornecedor)
-    {
-        return response()->json([
-            ['fornecedor'=>$fornecedor->load('fornecedores')]
-        ]);
+    public function estoques(Fornecedor $fornecedor){
+        return response()->json($fornecedor->load('estoques'));
     }
 }
