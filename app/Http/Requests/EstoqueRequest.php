@@ -21,7 +21,7 @@ class EstoqueRequest extends FormRequest{
     public function rules(){
         return [
             'qtd_estoque'=> 'required | min:1 | numeric ',
-            'fornecedor_id'=> 'required | min:1 | exists:fornecedor,id'
+            'fornecedor_id'=> 'required | min:1 | exists:fornecedores,id'
         ];
     }
 

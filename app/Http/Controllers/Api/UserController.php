@@ -20,10 +20,10 @@ class UserController extends Controller
     {
         $statusHttp=500;
         try{
-            if (!$request->user()->tokenCan('is-admin')) {
-                $statusHttp = 403;
-                throw new Exception("Não possui permissão!!!");
-            }
+            // if (!$request->user()->tokenCan('is_admin')) {
+            //     $statusHttp = 403;
+            //     throw new Exception("Não possui permissão!!!");
+            // }
             $perPage = $request->query('per_page');
             $paginateUsers = User::paginate($perPage);
             $paginateUsers->appends([

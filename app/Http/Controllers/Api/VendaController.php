@@ -78,7 +78,7 @@ class VendaController extends Controller
         }
     }
 
-    public function remove(int $id)
+    public function destroy(int $id)
     {
         $status = 404;
         try {
